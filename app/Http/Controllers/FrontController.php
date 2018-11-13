@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use CRUDBooster;
+
 use DB;
 class FrontController extends Controller
 {
@@ -59,5 +61,11 @@ public function getSearch(Request $request){
     ->where('posts.title' ,'like' ,'%' . $request->q . '%')->paginate(2);
     $data['categories']= DB::table('categories')->get();
     return view ('latest', $data); 
+}
+public function notf(){
+$config['content'] = "Hellow World";
+$config['to'] = CRUDBooster::adminPath('/admin');
+$config['id_cms_users'] = [1,2]; //This is an array of id users
+CRUDBooster::sendNotification($config);
 }
 }

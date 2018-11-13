@@ -16,3 +16,4 @@ Route::get('/article/{slug}','FrontController@getArticle');
 Route::get('/cat/{id}','FrontController@getByCategories');
 Route::get('/latest','FrontController@getLatest');
 Route::get('/search', 'FrontController@getSearch');
+Route::get('/noft', 'FrontController@notf');
